@@ -1,5 +1,4 @@
 import { Link, Outlet } from "react-router-dom";
-import logo from "../imgs/logo.png";
 import logo4 from "../imgs/logo4.png";
 import { useContext, useState } from "react";
 import { UserContext } from "../App";
@@ -9,7 +8,7 @@ const Navbar = () => {
     const [searchBoxVisibility, setSearchBoxVisibility] = useState(false)
     const [userNavPanel, setUserNavPanel] = useState(false);
 
-    const { userAuth, userAuth: { access_token, profile_img } } = useContext(UserContext);
+    const { userAuth: { access_token, profile_img } } = useContext(UserContext);
 
     const handleUserNavPanel = () => {
         setUserNavPanel(currentVal => !currentVal);
