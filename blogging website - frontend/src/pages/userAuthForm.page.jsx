@@ -11,8 +11,6 @@ import { authWithGoogle } from "../common/firebase";
 
 const UserAuthForm = ({ type }) => {
 
-    // const authForm = useRef();
-
     let { userAuth: { access_token }, setUserAuth } = useContext(UserContext)
     console.log(access_token);
 
