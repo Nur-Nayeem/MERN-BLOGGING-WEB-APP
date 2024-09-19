@@ -1,0 +1,4 @@
+.env
+auth_google_json/
+node_modules/
+
