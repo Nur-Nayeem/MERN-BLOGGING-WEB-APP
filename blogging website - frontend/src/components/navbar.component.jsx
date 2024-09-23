@@ -75,7 +75,7 @@ const Navbar = () => {
                         </>
                         :
                         <>
-                            <Link className="btn-dark py-2 " to="/signin ">
+                            <Link className="btn-blue py-2 " to="/signin ">
                                 Sign In
                             </Link>
                             <Link className="btn-light py-2 hidden md:block" to="/signup ">

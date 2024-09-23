@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@cloudinary/react": "^1.13.0",
+    "@cloudinary/url-gen": "^1.21.0",
     "@editorjs/code": "^2.8.0",
     "@editorjs/editorjs": "^2.27.2",
     "@editorjs/embed": "^2.5.3",
@@ -22,11 +24,13 @@
     "@editorjs/quote": "^2.5.0",
     "@flaticon/flaticon-uicons": "^2.2.0",
     "axios": "^1.4.0",
+    "cloudinary": "^2.5.0",
     "dotenv": "^16.4.5",
     "firebase": "^10.1.0",
     "framer-motion": "^10.13.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-dropzone": "^14.2.3",
     "react-hot-toast": "^2.4.1",
     "react-router-dom": "^6.14.2"
   },

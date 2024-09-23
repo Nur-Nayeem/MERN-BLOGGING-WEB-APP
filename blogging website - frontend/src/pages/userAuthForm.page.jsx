@@ -127,7 +127,7 @@ const UserAuthForm = ({ type }) => {
                             icon="fi-rr-key"
                         />
                         <button
-                            className="btn-dark center mt-14"
+                            className="btn-blue center mt-14"
                             type="submit"
                             onClick={handleSubmit}
                         >
@@ -142,7 +142,7 @@ const UserAuthForm = ({ type }) => {
                             <hr className="w-1/2 border-black" />
                         </div>
 
-                        <button className="btn-dark flex items-center justify-center gap-4 w-[90%] center "
+                        <button className="btn-blue flex items-center justify-center gap-4 w-[90%] center "
                             onClick={handleGoogleAuth}
                         >
                             <img src={googleIcon} className="w-5 " />

@@ -50,6 +50,12 @@
         @apply whitespace-nowrap bg-black text-white rounded-full py-3 px-6 text-xl capitalize hover:bg-opacity-80;
     }
 
+    .btn-blue {
+        background-color: hsl(229, 90%, 63%);
+        @apply whitespace-nowrap text-white rounded-full py-3 px-6 text-xl capitalize hover:bg-opacity-80;
+    }
+
+
     .btn-light {
         @apply btn-dark bg-grey text-black;
     }

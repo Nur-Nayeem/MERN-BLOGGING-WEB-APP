@@ -8,6 +8,21 @@ import cors from 'cors';
 import admin from 'firebase-admin'
 import serviceAccountKey from './auth_google_json/blogging-website-5b71a-firebase-adminsdk-atisa-75f2b24169.json' assert { type: "json" }
 import { getAuth } from 'firebase-admin/auth'
+import multer from 'multer';
+import path from 'path';
+import dotenv from 'dotenv'
+import { v2 as cloudinary } from 'cloudinary';
+import fs from 'fs';
+
+dotenv.config()
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.API_KEY,
+    api_sectret: process.env.API_KEY_SECRET
+})
+
+
+
 
 //schema below
 import User from './Schema/User.js';
@@ -19,6 +34,8 @@ admin.initializeApp({
     credential: admin.credential.cert(serviceAccountKey)
 })
 
+
+
 let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // regex for email
 let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/; // regex for password
 
@@ -28,6 +45,49 @@ server.use(cors());
 mongoose.connect(process.env.DB_LOCATION, {
     autoIndex: true,
 })
+
+
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
+
+server.post("/upload-img", upload.single("my_file"), (req, res) => {
+    try {
+        if (!req.file) {
+            return res.status(400).json({ success: false, message: "No file uploaded" });
+        }
+
+        const cloudinaryUploadStream = cloudinary.uploader.upload_stream(
+            { resource_type: "auto" },
+            (uploadError, cloudinaryResult) => {
+                if (uploadError) {
+                    return res.status(500).json({
+                        success: false,
+                        message: "File upload failed",
+                        error: uploadError.message,
+                    });
+                }
+                res.json({
+                    success: true,
+                    message: "File uploaded successfully",
+                    fileUrl: cloudinaryResult.secure_url,
+                    public_id: cloudinaryResult.public_id,
+                });
+
+            }
+        );
+
+        cloudinaryUploadStream.end(req.file.buffer);
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "File upload failed",
+            error: error.message,
+        });
+    }
+});
 
 const formateDataSend = (user) => {
     const access_token = jwt.sign({ id: user._id }, process.env.SECRET_ACCESS_KEY)
