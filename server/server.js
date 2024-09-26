@@ -9,10 +9,9 @@ import admin from 'firebase-admin'
 import serviceAccountKey from './auth_google_json/blogging-website-5b71a-firebase-adminsdk-atisa-75f2b24169.json' assert { type: "json" }
 import { getAuth } from 'firebase-admin/auth'
 import multer from 'multer';
-import path from 'path';
 import dotenv from 'dotenv'
 import { v2 as cloudinary } from 'cloudinary';
-import fs from 'fs';
+
 
 dotenv.config()
 cloudinary.config({
@@ -245,7 +244,26 @@ server.post('/google-auth', async (req, res) => {
         });
 
 })
+//get blog
+server.get("/latest-blogs", (req, res) => {
 
+    let maxLimit = 5;
+
+    Blog.find({ draft: false })
+        .populate("author", "personal_info.profile_img personal_info.username personal_info.fullname -_id ")
+        .sort({ "publishedAt": -1 })
+        .select("blog_id title des banner activity tags publishedAt -_id")
+        .limit(maxLimit)
+        .then(blogs => {
+            return res.status(200).json({ blogs })
+        })
+        .catch(err => {
+            return res.status(500).json({ error: err.message })
+        })
+})
+
+
+//create a new user
 server.post('/create-blog', verifyJWT, (req, res) => {
     let authorId = req.user;
 

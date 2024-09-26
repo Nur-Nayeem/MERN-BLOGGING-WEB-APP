@@ -1,17 +1,6 @@
-POST http://localhost:3002/create-blog
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZjRmZWYzNmZmZDA4ZTVhYzI2YzVlMiIsImlhdCI6MTcyNzMzMjA4M30.QRfUrnkb05uSJponu74-orMSKcec0aoeaEPbTJRanCw
+GET http://localhost:3002/latest-blogs
 
-{
-    "title": "This is test title5",
-    "banner": "https://example.com/image-url",
-    "des": "this is test description",
-    "content": {
-        "blocks": [ 1, 2, 3 ]
-    },
-    "tags": ["tag1", "tag2", "tag3"]
 
-}
 
 #accesstoken   eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZjRmZWYzNmZmZDA4ZTVhYzI2YzVlMiIsImlhdCI6MTcyNzMzMjA4M30.QRfUrnkb05uSJponu74-orMSKcec0aoeaEPbTJRanCw
 

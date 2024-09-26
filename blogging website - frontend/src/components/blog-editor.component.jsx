@@ -90,7 +90,7 @@ const BlogEditor = () => {
     }
 
     useEffect(() => {
-        if (!textEditor.isReady) {
+        if (textEditor.isReady) {
             setTextEditor(new EditorJS({
                 holderId: "textEditor",
                 data: content,
@@ -203,7 +203,7 @@ const BlogEditor = () => {
                                 <input
                                     id="uploadBanner"
                                     type="file"
-                                    accept=".png, .jpg, .jpeg"
+                                    accept="image/*"
                                     hidden
                                     onChange={handleUpload}
 
