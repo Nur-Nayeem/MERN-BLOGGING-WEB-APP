@@ -1,4 +1,9 @@
-GET http://localhost:3002/latest-blogs
+POST http://localhost:3002/search-blogs
+Content-Type: application/json
+
+{
+    "tag": "fruits"
+}
 
 
 
