@@ -1,8 +1,8 @@
-POST http://localhost:3002/search-blogs
+POST http://localhost:3002/search-users
 Content-Type: application/json
 
 {
-    "tag": "fruits"
+    "query": "naruto"
 }
 
 
