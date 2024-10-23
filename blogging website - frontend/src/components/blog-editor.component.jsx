@@ -90,7 +90,7 @@ const BlogEditor = () => {
     }
 
     useEffect(() => {
-        if (textEditor.isReady) {
+        if (!textEditor.isReady) {
             setTextEditor(new EditorJS({
                 holderId: "textEditor",
                 data: content,
@@ -100,6 +100,7 @@ const BlogEditor = () => {
         }
 
     }, [])
+
 
     const handlePublishEvent = () => {
         if (!banner.length) {
