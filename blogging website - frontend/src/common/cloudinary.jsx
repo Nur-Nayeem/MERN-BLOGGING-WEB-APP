@@ -1,3 +1,4 @@
+////alternative of aws for image upload
 import axios from "axios";
 export const UploadImg = async (file) => {
     let url = null;
