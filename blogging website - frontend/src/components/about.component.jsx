@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { getFullDay } from "../common/date";
+import { getFullDate, getFullDay } from "../common/date";
 
 const AboutUser = ({ className, bio, social_links, joinedAt }) => {
     return (
@@ -17,7 +17,7 @@ const AboutUser = ({ className, bio, social_links, joinedAt }) => {
                     })
                 }
             </div>
-            <p className="text-xl leading-7 text-dark-grey text-center md:text-left">Joined on {getFullDay(joinedAt)}</p>
+            <p className="text-xl leading-7 text-dark-grey text-center md:text-left">Joined on {getFullDate(joinedAt)}</p>
         </div>
     )
 }
