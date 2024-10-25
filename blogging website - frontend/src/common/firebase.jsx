@@ -1,4 +1,4 @@
-
+////google authentication using firebase
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth"
 const firebaseConfig = {
