@@ -21,12 +21,11 @@ const BlogEditor = () => {
     let { blog, blog: { title, banner, content, tags, des }, setBlog, textEditor, setTextEditor, setEditorState } = useContext(EditorContext)
 
 
+
+
     let { userAuth: { access_token } } = useContext(UserContext);
 
     let navigate = useNavigate();
-
-    console.log(blog);
-
 
     const handleUpload = (e) => {
         try {
@@ -90,6 +89,8 @@ const BlogEditor = () => {
     }
 
     useEffect(() => {
+        console.log(title);
+
         if (!textEditor.isReady) {
             setTextEditor(new EditorJS({
                 holderId: "textEditor",
