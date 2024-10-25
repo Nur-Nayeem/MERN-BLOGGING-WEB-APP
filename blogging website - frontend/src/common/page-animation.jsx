@@ -1,4 +1,5 @@
-import { AnimatePresence, motion } from "framer-motion"
+//page animation
+import { AnimatePresence, motion } from "framer-motion";
 const Animationwrapper = ({ children, initial = { opacity: 0 }, animate = { opacity: 1 }, transition = { duration: 1 }, keyValue, className }) => {
     return (
         <AnimatePresence>
