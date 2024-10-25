@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { getFullDate, getFullDay } from "../common/date";
+import { getFullDate } from "../common/date";
 
 const AboutUser = ({ className, bio, social_links, joinedAt }) => {
     return (
