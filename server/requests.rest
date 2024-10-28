@@ -1,8 +1,8 @@
-POST http://localhost:3002/get-profile
+POST http://localhost:3002/get-blog
 Content-Type: application/json
 
 {
-    "username": "john"
+    "blog_id": "Marketing-Trends-You-Can-t-Ignore-in-2024tC4edDDtJWbGfMateqSrF"
 }
 
 
