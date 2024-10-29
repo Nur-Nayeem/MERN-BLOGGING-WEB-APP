@@ -17,7 +17,7 @@ const Navbar = () => {
     const handleBlur = () => {
         setTimeout(() => {
             setUserNavPanel(false);
-        }, 200);
+        }, 300);
     }
 
     const handleSearch = (e) => {
