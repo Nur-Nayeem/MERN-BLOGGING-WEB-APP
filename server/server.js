@@ -631,6 +631,74 @@ server.post("/get-replies", (req, res) => {
 
 })
 
+//delete comment
+
+const deleteComments = (_id) => {
+    Comment.findOneAndDelete({ _id })
+        .then(comment => {
+            if (comment.parent) {
+                Comment.findOneAndUpdate({ _id: comment.parent }, { $pull: { children: _id } })
+                    .then(data => {
+                        console.log("comment delete from parent");
+                    })
+                    .catch(err => {
+                        console.log(err);
+
+                    })
+            }
+
+            Notification.findOneAndDelete({ comment: _id })
+                .then(notification => {
+                    console.log("comment notification deleted");
+                })
+
+            Notification.findOneAndDelete({ reply: _id })
+                .then(notification => {
+                    console.log("reply notification deleted");
+                })
+            Blog.findOneAndUpdate({ _id: comment.blog_id }, { $pull: { comments: _id }, $inc: { "activity.total_comments": -1 }, "activity.total_parent_comments": comment.parent ? 0 : -1 })
+                .then(blog => {
+                    if (comment.children.length) {
+                        comment.children.map(replies => {
+                            deleteComments(replies)
+                        })
+                    }
+                })
+        })
+        .catch(err => {
+            console.log(err.message);
+
+        })
+}
+
+server.post("/delete-comment", verifyJWT, (req, res) => {
+
+    let user_id = req.user;
+
+    let { _id } = req.body;
+
+    Comment.findOne({ _id })
+        .then(comment => {
+
+            if (user_id == comment.commented_by || user_id == comment.blog_author) {
+
+
+                deleteComments(_id)
+
+                return res.status(200).json({ status: 'done' })
+
+            }
+            else {
+                return res.status(403).json({ error: "You can not delete this comment" })
+
+            }
+        })
+        .catch(err => {
+            console.log("not found");
+
+        })
+
+})
 
 server.listen(PORT, () => {
     console.log(`Lisening on port ${PORT}`);
