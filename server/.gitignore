@@ -1,4 +1,6 @@
 .env
+auth_google_json/
 
-node_modules/*
+node_modules/
 
+request.rest
