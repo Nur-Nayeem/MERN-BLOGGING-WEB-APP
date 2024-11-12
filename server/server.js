@@ -689,7 +689,7 @@ server.post("/delete-comment", verifyJWT, (req, res) => {
 
             }
             else {
-                return res.status(403).json({ error: "You can not delete this comment" })
+                return res.status(403).json({ error: "You can't delete this comment" })
 
             }
         })
