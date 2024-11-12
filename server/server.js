@@ -6,7 +6,7 @@ import { nanoid } from 'nanoid';
 import jwt from 'jsonwebtoken';
 import cors from 'cors';
 import admin from 'firebase-admin'
-import serviceAccountKey from './auth_google_json/blogging-website-5b71a-firebase-adminsdk-atisa-75f2b24169.json' assert { type: "json" }
+import serviceAccountKey from './blogging-website-5b71a-firebase-adminsdk-atisa-75f2b24169.json' assert { type: "json" }
 import { getAuth } from 'firebase-admin/auth'
 import multer from 'multer';
 import dotenv, { populate } from 'dotenv'
