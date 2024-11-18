@@ -1,9 +1,14 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import Animationwrapper from "../common/page-animation";
 import InputBox from "../components/input.component";
 import toast, { Toaster } from "react-hot-toast"
+import axios from 'axios'
+import { UserContext } from '../App'
+
 
 const ChangePassword = () => {
+
+    let { userAuth: { access_token } } = useContext(UserContext);
 
     let changePasswordForm = useRef();
 
@@ -28,6 +33,26 @@ const ChangePassword = () => {
         if (!passwordRegex.test(currentPassword) || !passwordRegex.test(newPassword)) {
             return toast.error("Password should be 6 to 20 character long with a number, 1 lowercase, 1 upercase")
         }
+
+        e.target.setAttribute("disabled", true);
+        let loadingToast = toast.loading("Updating...");
+
+        axios.post(import.meta.env.VITE_SERVER_DOMAIN + "/change-password", formData, {
+            headers: {
+                'Authorization': `Bearer ${access_token}`
+            }
+        })
+            .then(() => {
+                toast.dismiss(loadingToast);
+                e.target.removeAttribute("disabled");
+                return toast.success("Password Updated")
+            })
+            .catch(({ response }) => {
+                toast.dismiss(loadingToast);
+                e.target.removeAttribute("disabled");
+                return toast.error(response.data.error)
+
+            })
 
     }
 
