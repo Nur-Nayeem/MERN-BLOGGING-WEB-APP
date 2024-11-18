@@ -1,4 +1,4 @@
-import express, { response } from 'express';
+import express from 'express';
 import mongoose from 'mongoose';
 import 'dotenv/config'
 import bcrypt from 'bcrypt';
@@ -6,12 +6,15 @@ import { nanoid } from 'nanoid';
 import jwt from 'jsonwebtoken';
 import cors from 'cors';
 import admin from 'firebase-admin'
-import serviceAccountKey from './auth_google_json/blogging-website-5b71a-firebase-adminsdk-atisa-75f2b24169.json' assert { type: "json" }
 import { getAuth } from 'firebase-admin/auth'
 import multer from 'multer';
-import dotenv, { populate } from 'dotenv'
+import fs from 'fs';
+import dotenv, { decrypt, populate } from 'dotenv'
 import { v2 as cloudinary } from 'cloudinary';
 
+const serviceAccountKey = JSON.parse(
+    fs.readFileSync('./blogging-website-5b71a-firebase-adminsdk-atisa-75f2b24169.json', 'utf-8')
+);
 
 dotenv.config()
 cloudinary.config({
@@ -246,6 +249,50 @@ server.post('/google-auth', async (req, res) => {
         });
 
 })
+
+//change password:
+server.post("/change-password", verifyJWT, (req, res) => {
+    let { currentPassword, newPassword } = req.body;
+
+    if (!passwordRegex.test(currentPassword) || !passwordRegex.test(newPassword)) {
+        return res.status(403).json({ error: "Password should be 6 to 20 character long with a number, 1 lowercase, 1 upercase" })
+    }
+
+    User.findOne({ _id: req.user })
+        .then((user) => {
+            if (user.google_auth) {
+                return res.status(403).json({ error: "You can't change account's password because you logged in through google" })
+            }
+            bcrypt.compare(currentPassword, user.personal_info.password, (err, result) => {
+                if (err) {
+                    return res.status(500).json({ error: "Some error occured while changing the password, please try again " })
+                }
+                if (!result) {
+                    return res.status(403).json({ error: "Incorrect current password" })
+                }
+
+                bcrypt.hash(newPassword, 10, (err, hashed_password) => {
+                    User.findOneAndUpdate({ _id: req.user }, { "personal_info.password": hashed_password })
+                        .then((u) => {
+                            return res.status(200).json({ status: "password changed" })
+                        })
+                        .catch(err => {
+                            return res.status(500).json({ error: "Some error occured while saving new password, please try again later" })
+                        })
+                })
+
+            })
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({ error: "user  not found" })
+        })
+
+
+})
+
+
+
 //get blog
 server.post("/latest-blogs", (req, res) => {
 
@@ -363,6 +410,7 @@ server.post("/search-users", (req, res) => {
         })
 })
 
+
 //user profile
 
 server.post("/get-profile", (req, res) => {
@@ -378,6 +426,76 @@ server.post("/get-profile", (req, res) => {
             return res.status(500).json({ error: err.message })
 
         })
+})
+//upload profile image:
+
+server.post("/update-profile-img", verifyJWT, (req, res) => {
+
+    let { url } = req.body;
+
+    User.findOneAndUpdate({ _id: req.user }, { "personal_info.profile_img": url })
+        .then(() => {
+            return res.status(200).json({ profile_img: url })
+
+        })
+        .catch(err => {
+            return res.status(500).json({ error: err.message })
+        })
+
+})
+
+//update profile data:
+server.post("/update-profile", verifyJWT, (req, res) => {
+    let { username, bio, social_links } = req.body;
+    let bioLimit = 150;
+
+    if (username.length < 3) {
+        return res.status(403).json({ error: "Username should be at least 3 letters long" });
+
+    }
+    if (bio.length > bioLimit) {
+        return res.status(403).json({ error: `Bio should not be more then ${bioLimit}` })
+    }
+
+    let socialLinksArr = Object.keys(social_links);
+
+    try {
+
+        for (let i = 0; i < socialLinksArr.length; i++) {
+            if (social_links[socialLinksArr[i]].length) {
+                let hostname = new URL(social_links[socialLinksArr[i]]).hostname;
+
+                if (!hostname.includes(`${socialLinksArr[i]}.com`) && socialLinksArr[i] != 'website') {
+                    return res.status(403).json({ error: `${socialLinksArr[i]} link is invalid. You must enter a full link` })
+                }
+
+            }
+        }
+
+    } catch (err) {
+        return res.status(500).json({ error: "You must provide full social links with http(s) included" })
+    }
+
+    let UpdateObj = {
+        "personal_info.username": username,
+        "personal_info.bio": bio,
+        social_links
+    }
+
+    User.findOneAndUpdate({ _id: req.user }, UpdateObj, {
+        runValidators: true
+    })
+        .then(() => {
+            return res.status(200).json({ username })
+
+        })
+        .catch(err => {
+            if (err.code == 11000) {
+                return res.status(409).json({ error: "User Name is already taken" })
+            }
+            return res.status(500).json({ error: err.message })
+        })
+
 })
 
 
@@ -699,6 +817,9 @@ server.post("/delete-comment", verifyJWT, (req, res) => {
         })
 
 })
+
+
+
 
 server.listen(PORT, () => {
     console.log(`Lisening on port ${PORT}`);
