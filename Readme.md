@@ -18,4 +18,5 @@ This website features include -
 14. Its mobile responsive with modern design + fade in animation on pages.
 And much more.
 
-To Visit the Website:https://bloggerthoughts.netlify.app/
+To visit the Website: https://bloggerthoughts.netlify.app/
+
