@@ -30,7 +30,7 @@ const BlogInteraction = () => {
 
                 })
         }
-    })
+    }, [])
 
     const handleLike = () => {
         if (access_token) {
