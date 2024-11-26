@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../App";
 import { Toaster, toast } from "react-hot-toast";
 import axios from "axios";
+import { FacebookShareButton, WhatsappShareButton, TwitterShareButton, FacebookIcon, TwitterIcon, WhatsappIcon, XIcon } from "react-share";
+
 
 const BlogInteraction = () => {
     let { blog, blog: { _id, title, blog_id, activity, activity: { total_likes, total_comments }, author: {
@@ -12,6 +14,8 @@ const BlogInteraction = () => {
 
     let { userAuth: { username, access_token } } = useContext(UserContext);
 
+    const shareUrl = window.location.href;
+    // const shareUrl = "https://bloggerthoughts.netlify.app";
 
     useEffect(() => {
         if (access_token) {
@@ -88,8 +92,19 @@ const BlogInteraction = () => {
                         username == author_username ?
                             <Link to={`/editor/${blog_id}`} className="underline hover:text-purple">Edit</Link> : ""
                     }
+                    <div>
+                        <FacebookShareButton url={shareUrl} className="mr-3">
+                            <FacebookIcon size={30} round={true} />
+                        </FacebookShareButton >
+                        <WhatsappShareButton url={shareUrl} className="mr-3">
+                            <WhatsappIcon size={30} round={true} />
+                        </WhatsappShareButton>
+                        <TwitterShareButton url={shareUrl} className="mr-3">
+                            <XIcon size={30} round={true} />
+                        </TwitterShareButton>
+                    </div>
 
-                    <Link to={`https://x.com/intent/post?text=Read ${title}&url=${location.href} `}><i className="fi fi-brands-twitter text-xl hover:text-twitter"></i></Link>
+                    {/* <Link to={`https://x.com/intent/post?text=Read ${title}&url=${location.href} `}><i className="fi fi-brands-twitter text-xl hover:text-twitter"></i></Link> */}
                 </div>
             </div>
 
