@@ -1,5 +1,5 @@
-
-
+# Visit
+the Website: https://bloggerthoughts.netlify.app/
 
 This website features include -
 1. Modern Blog Editor using Editor JS.
@@ -19,33 +19,29 @@ This website features include -
 And much more.
 
 Some ScreenShots:
-![image](https://res.cloudinary.com/dx43z0uml/image/upload/v1739903896/111_rgl1xs.png)# Fullstack MERN Blogging Website
-![image](https://res.cloudinary.com/dx43z0uml/image/upload/v1739904009/222_bbyk40.png)# Fullstack MERN Blogging Website
-![image](https://res.cloudinary.com/dx43z0uml/image/upload/v1739904203/333_rhkmkr.png)# Fullstack MERN Blogging Website
-1. HomePage:   https://res.cloudinary.com/dx43z0uml/image/upload/v1739903896/111_rgl1xs.png
-2. SignUp:     https://res.cloudinary.com/dx43z0uml/image/upload/v1739904009/222_bbyk40.png
-3. SignIn:     https://res.cloudinary.com/dx43z0uml/image/upload/v1739904203/333_rhkmkr.png
-4. CreateBlog: https://res.cloudinary.com/dx43z0uml/image/upload/v1739904264/444_rtaeac.png
-5. EditBlog:   https://res.cloudinary.com/dx43z0uml/image/upload/v1739904992/555_ly2pqp.png
-6. MobileViewEdit: https://res.cloudinary.com/dx43z0uml/image/upload/v1739904992/555_ly2pqp.png
-7. BeforePublish:  https://res.cloudinary.com/dx43z0uml/image/upload/v1739905634/11111_l8eekg.png
-8. DashBoard:      https://res.cloudinary.com/dx43z0uml/image/upload/v1739905114/666_xla7bw.png
-9. NotificationPage:  https://res.cloudinary.com/dx43z0uml/image/upload/v1739905164/777_pkzmji.png
-10. ProfilePage:    https://res.cloudinary.com/dx43z0uml/image/upload/v1739905215/888_hzqsq7.png
-11. EditProfilePage:  https://res.cloudinary.com/dx43z0uml/image/upload/v1739905258/999_ouo9fk.png
-12. MobileFrontView:  https://res.cloudinary.com/dx43z0uml/image/upload/v1739905313/101010_azp5nm.png
+# HomePage
+![image](https://res.cloudinary.com/dx43z0uml/image/upload/v1739903896/111_rgl1xs.png)
+# MobileFrontView
+![image](https://res.cloudinary.com/dx43z0uml/image/upload/v1739905313/101010_azp5nm.png)
+# SignUp
+![image](https://res.cloudinary.com/dx43z0uml/image/upload/v1739904009/222_bbyk40.png)
+# SignIn
+![image](https://res.cloudinary.com/dx43z0uml/image/upload/v1739904203/333_rhkmkr.png)
+# CreateBlog
+![image](https://res.cloudinary.com/dx43z0uml/image/upload/v1739904264/444_rtaeac.png)
+# EditBlog
+![image](https://res.cloudinary.com/dx43z0uml/image/upload/v1739904992/555_ly2pqp.png)
+# MobileViewEdit
+![image](https://res.cloudinary.com/dx43z0uml/image/upload/v1739904992/555_ly2pqp.png)
+# BeforePublish
+![image](https://res.cloudinary.com/dx43z0uml/image/upload/v1739905634/11111_l8eekg.png)
+# DashBoard
+![image](https://res.cloudinary.com/dx43z0uml/image/upload/v1739905114/666_xla7bw.png)
+# NotificationPage
+![image](https://res.cloudinary.com/dx43z0uml/image/upload/v1739905164/777_pkzmji.png)
+# ProfilePage
+![image](https://res.cloudinary.com/dx43z0uml/image/upload/v1739905215/888_hzqsq7.png)
+# EditProfilePage
+![image](https://res.cloudinary.com/dx43z0uml/image/upload/v1739905258/999_ouo9fk.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-To visit the Website: https://bloggerthoughts.netlify.app/
 
