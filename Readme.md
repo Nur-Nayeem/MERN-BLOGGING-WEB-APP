@@ -19,13 +19,13 @@ This website features include -
 And much more.
 
 Some ScreenShots:
-1. HomePage:   https://res.cloudinary.com/dx43z0uml/image/upload/c_thumb,w_200,g_face/v1739903896/111_rgl1xs.png
+1. HomePage:   https://res.cloudinary.com/dx43z0uml/image/upload/v1739903896/111_rgl1xs.png
 2. SignUp:     https://res.cloudinary.com/dx43z0uml/image/upload/v1739904009/222_bbyk40.png
 3. SignIn:     https://res.cloudinary.com/dx43z0uml/image/upload/v1739904203/333_rhkmkr.png
 4. CreateBlog: https://res.cloudinary.com/dx43z0uml/image/upload/v1739904264/444_rtaeac.png
 5. EditBlog:   https://res.cloudinary.com/dx43z0uml/image/upload/v1739904992/555_ly2pqp.png
 6. MobileViewEdit: https://res.cloudinary.com/dx43z0uml/image/upload/v1739904992/555_ly2pqp.png
-7. BeforePublish:  https://res.cloudinary.com/dx43z0uml/image/upload/v1739905634/11111_l8eekg.png
+7. BeforePublish:  
 8. DashBoard:      https://res.cloudinary.com/dx43z0uml/image/upload/v1739905114/666_xla7bw.png
 9. NotificationPage:  https://res.cloudinary.com/dx43z0uml/image/upload/v1739905164/777_pkzmji.png
 10. ProfilePage:    https://res.cloudinary.com/dx43z0uml/image/upload/v1739905215/888_hzqsq7.png
