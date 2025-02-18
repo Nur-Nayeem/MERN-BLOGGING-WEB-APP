@@ -1,5 +1,5 @@
-# Visit
-the Website: https://bloggerthoughts.netlify.app/
+# MERN STACK BLOGGING WEBSITE
+To visit the Website: https://bloggerthoughts.netlify.app/
 
 This website features include -
 1. Modern Blog Editor using Editor JS.
