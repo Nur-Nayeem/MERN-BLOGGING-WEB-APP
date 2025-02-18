@@ -19,7 +19,7 @@ This website features include -
 And much more.
 
 Some ScreenShots:
-1. HomePage:   https://res.cloudinary.com/dx43z0uml/image/upload/v1739903896/111_rgl1xs.png
+1. HomePage:   https://res.cloudinary.com/dx43z0uml/image/upload/c_thumb,w_200,g_face/v1739903896/111_rgl1xs.png
 2. SignUp:     https://res.cloudinary.com/dx43z0uml/image/upload/v1739904009/222_bbyk40.png
 3. SignIn:     https://res.cloudinary.com/dx43z0uml/image/upload/v1739904203/333_rhkmkr.png
 4. CreateBlog: https://res.cloudinary.com/dx43z0uml/image/upload/v1739904264/444_rtaeac.png
