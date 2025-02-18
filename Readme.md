@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/1c32d638-0b0d-46d5-b954-9cac52aec98b)# Fullstack MERN Blogging Website
+![image](https://res.cloudinary.com/dx43z0uml/image/upload/v1739903896/111_rgl1xs.png)# Fullstack MERN Blogging Website
 
 
 This website features include -
@@ -25,7 +25,7 @@ Some ScreenShots:
 4. CreateBlog: https://res.cloudinary.com/dx43z0uml/image/upload/v1739904264/444_rtaeac.png
 5. EditBlog:   https://res.cloudinary.com/dx43z0uml/image/upload/v1739904992/555_ly2pqp.png
 6. MobileViewEdit: https://res.cloudinary.com/dx43z0uml/image/upload/v1739904992/555_ly2pqp.png
-7. BeforePublish:  
+7. BeforePublish:  https://res.cloudinary.com/dx43z0uml/image/upload/v1739905634/11111_l8eekg.png
 8. DashBoard:      https://res.cloudinary.com/dx43z0uml/image/upload/v1739905114/666_xla7bw.png
 9. NotificationPage:  https://res.cloudinary.com/dx43z0uml/image/upload/v1739905164/777_pkzmji.png
 10. ProfilePage:    https://res.cloudinary.com/dx43z0uml/image/upload/v1739905215/888_hzqsq7.png
