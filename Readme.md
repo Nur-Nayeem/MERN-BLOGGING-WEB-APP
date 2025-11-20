@@ -40,8 +40,7 @@ This blogging platform provides everything a writer or reader needs — an advan
 ### **Frontend**
 - React.js  
 - Tailwind CSS  
-- DaisyUI  
-- React Router  
+- React Router 
 - EditorJS  
 
 ### **Backend**
