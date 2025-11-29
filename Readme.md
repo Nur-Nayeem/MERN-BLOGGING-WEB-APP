@@ -1,4 +1,4 @@
-# 📝 MERN Stack Blogging Website
+# 📝 Blogger Thoughts
 
 A full-featured blogging platform built with the MERN stack, designed for modern writing, sharing, and community interaction.
 
